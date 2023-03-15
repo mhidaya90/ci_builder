@@ -1,0 +1,15 @@
+default_platform(:android)
+
+platform :android do
+ desc "Hidaya TestApp"
+  lane :distribute do
+    gradle(task: "clean assembleRelease")
+    firebase_app_distribution(
+    app: "1:374614022035:android:b0eb64320262ee5cf57a66",
+    firebase_cli_token: "1//0gb-UmTDdBjSHCgYIARAAGBASNwF-L9Irq__ZGDx1oX7mvWcdLro4ps11IqqsLg-nMZfkfWyvVL7aZMnAWzFWuAecajbKdzTWtYY",
+    release_notes: "Test Deployment",
+    android_artifact_type: "APK",
+    android_artifact_path: File.expand_path("..", Dir.pwd)+"/app/build/outputs/apk/release/app-release.apk"
+        )
+  end
+end
